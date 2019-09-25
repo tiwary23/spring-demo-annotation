@@ -10,24 +10,23 @@ import org.springframework.core.io.ClassPathResource;
 
 
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
     {
         ApplicationContext context=new AnnotationConfigApplicationContext("com.stackroute");
         System.out.println("Application context configured");
-        Movie movie=context.getBean("movie",Movie.class);
+        Movie movie=context.getBean("MovieA",Movie.class);
         System.out.println(movie);
 
-        BeanFactory factory= new AnnotationConfigApplicationContext("com.stackroute");
-        System.out.println("Bean Factory configured");
-        Movie movie1=factory.getBean("movie",Movie.class);
-        System.out.println(movie1
-        );
+        Movie movie1=context.getBean("MovieB",Movie.class);
+        System.out.println(movie1);
+
+        System.out.println("MovieA==MovieB: " +
+                ""+(movie==movie1));
+
+
 
 
 
