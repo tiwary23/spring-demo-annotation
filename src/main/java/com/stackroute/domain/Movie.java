@@ -1,24 +1,21 @@
 package com.stackroute.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 
 public class Movie {
 
-
-    private Actor actor1;
-
     @Autowired
-    public Movie(Actor actor1) {
-        this.actor1 = actor1;
-    }
+    @Qualifier("actor1")
+    private Actor actor;
+
+
 
     @Override
     public String toString() {
         return "Movie{" +
-                "actor1=" + actor1 +
+                "actor1=" + actor +
                 '}';
     }
 }
